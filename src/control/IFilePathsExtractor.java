@@ -5,5 +5,7 @@ import java.util.List;
 
 public interface IFilePathsExtractor
 {
-    public List<Path> extractFilePaths();
+    List<Path> extractFilePaths();
+    int getFileCount();
+    int getDirCount();
 }

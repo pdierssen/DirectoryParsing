@@ -51,4 +51,14 @@ public class Directory implements IFilePathsExtractor
         listFilePathsFromDirectory(directory);
         return filePathList;
     }
+
+    @Override public int getFileCount()
+    {
+        return filecount;
+    }
+
+    @Override public int getDirCount()
+    {
+        return dircount;
+    }
 }
