@@ -33,7 +33,7 @@ public class FileOutput implements IFileMerger
                 String line = bufferedReader.readLine();
                 while (line != null)
                 {
-                    System.out.println(line);
+                    //System.out.println(line);
                     bufferedWriter.write(line);
                     bufferedWriter.newLine();
                     line = bufferedReader.readLine();
