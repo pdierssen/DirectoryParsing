@@ -13,18 +13,8 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Path directory = FileSystems.getDefault().getPath("src/resources/directoy");
-        List<Path> paths = new ArrayList<>();
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(directory))
-            {
-                for (Path entry : stream)
-                {
-                    paths.add(entry);
-                }
-            } catch (IOException e)
-        {
-            System.out.println("Exception" +  e.getMessage());
-        }
+        Directory dir = new Directory("src/resources/directoy");
+        List<Path> paths = dir.extractFilePaths();
         System.out.println(paths);
     }
 }
