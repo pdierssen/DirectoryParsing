@@ -1,6 +1,5 @@
 package control;
 
-import java.io.*;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -13,5 +12,7 @@ public class Main
         System.out.println(paths);
         FileOutput fileOutput = new FileOutput("src/resources/result187.txt");
         fileOutput.mergeFiles(paths);
+        System.out.println(dir.filecount + ": files");
+        System.out.println(dir.dircount + ": dirs");
     }
 }

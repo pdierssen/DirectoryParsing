@@ -6,13 +6,12 @@ import java.util.List;
 
 public class FileOutput implements IFileMerger
 {
-    private File result;
-    private FileWriter fileWriter;
     private BufferedWriter bufferedWriter;
 
     public FileOutput (String fileName)
     {
-        result = new File(fileName);
+        FileWriter fileWriter;
+        File result = new File(fileName);
         try
         {
             fileWriter = new FileWriter(result);
@@ -37,6 +36,7 @@ public class FileOutput implements IFileMerger
                     bufferedWriter.write(line);
                     bufferedWriter.newLine();
                     line = bufferedReader.readLine();
+                    bufferedWriter.flush();
                 }
                 bufferedReader.close();
             } catch (FileNotFoundException e)

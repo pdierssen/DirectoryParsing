@@ -1,6 +1,5 @@
 package control;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.FileSystems;
@@ -11,13 +10,14 @@ import java.util.List;
 
 public class Directory implements IFilePathsExtractor
 {
-    private Path directory;
-    private List<Path> filePathList;
+    private final Path directory;
+    private final List<Path> filePathList = new ArrayList<>();
+    public int dircount = 0;
+    public int filecount =0;
 
     public Directory (String directoryPath)
     {
         directory = FileSystems.getDefault().getPath(directoryPath);
-        filePathList = new ArrayList<>();
     }
 
     private void listFilePathsFromDirectory(Path directory)
@@ -29,10 +29,12 @@ public class Directory implements IFilePathsExtractor
                 if (entry.toFile().isDirectory())
                 {
                     listFilePathsFromDirectory(entry);
+                    dircount++;
                 }
                 else
                 {
                     filePathList.add(entry);
+                    filecount++;
                 }
             }
         } catch (IOException e)
